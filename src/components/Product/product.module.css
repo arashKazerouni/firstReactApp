@@ -3,4 +3,10 @@
     padding: 20px;
     border-radius: 10px;
 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60vw;
+    font-weight: 700;
+    height: 20vh;
 }
