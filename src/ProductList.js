@@ -8,6 +8,10 @@ const ProductList = () => {
     { name: "angular", price: "80$", id: 3 },
   ]);
 
+  const removeHandler = (id) => {
+    const filteredProduct = products.filter((p) => p.id !== id);
+    setProduct(filteredProduct);
+  };
 
   return (
     <>
@@ -17,7 +21,7 @@ const ProductList = () => {
             name={product.name}
             price={product.price}
             key={product.id}
-           
+            onDelete={() => removeHandler(product.id)}
           />
         );
       })}
