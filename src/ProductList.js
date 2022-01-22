@@ -22,6 +22,15 @@ const ProductList = () => {
 
   };
 
+  const decrementHandler =(id) =>{
+    const productsClone = [...products];
+    const selectedItem = productsClone.find((p)=> p.id ===id);
+    if(selectedItem.quantity !== 0){
+      selectedItem.quantity--;
+    }
+    setProduct(productsClone)
+  }
+
   return (
     <>
       {products.map((product) => {
@@ -31,6 +40,7 @@ const ProductList = () => {
             key={product.id}
             onDelete={() => removeHandler(product.id)}
             onIncrement={() => incrementHandler(product.id)}
+            onDecrement={()=> decrementHandler(product.id)}
           />
         );
       })}
