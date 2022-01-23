@@ -23,17 +23,20 @@ const ProductList = () => {
   const decrementHandler = (id) => {
     const productsClone = [...products];
     const selectedItem = productsClone.find((p) => p.id === id);
-    if (selectedItem.quantity !== 0) {
+    if (selectedItem.quantity ===1) {
+      const filteredProduct = productsClone.filter(p => p.id !== id) 
+      setProduct(filteredProduct)
+    } else{
       selectedItem.quantity--;
+      setProduct(productsClone)
     }
-    setProduct(productsClone);
   };
 
   const changeHandler = (event, id) => {
     const productsClone = [...products];
     const selectedItem = productsClone.find((p) => p.id === id);
     selectedItem.name = event.target.value;
-    setProduct(productsClone)
+    setProduct(productsClone);
   };
 
   return (

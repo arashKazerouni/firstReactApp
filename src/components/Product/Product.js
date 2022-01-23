@@ -7,11 +7,9 @@ const Product = (props) => {
       <p>name : {props.product.name} course</p>
       <p>price : {props.product.price}</p>
       <span className={styles.quantity}>{props.product.quantity}</span>
-      <input type="text" onChange={props.onChange}  value={props.product.name}/>
-      <button onClick={props.onIncrement} className={styles.increment}>
-        increment
-      </button>
-      <button onClick={props.onDecrement}>decrement</button>
+      <input type="text" onChange={props.onChange} value={props.product.name} />
+      <button onClick={props.onIncrement} className={styles.increment}>+</button>
+      <button onClick={props.onDecrement}>-</button>
       <button onClick={props.onDelete}>delete</button>
     </div>
   );
