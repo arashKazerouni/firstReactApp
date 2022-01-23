@@ -38,3 +38,13 @@ button {
     padding: 3px 6px;
     border-radius: 50%;
 }
+
+input{
+    outline: none;
+    border: solid 1px #FBCFE8;
+    color: #FBCFE8;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: none;
+    text-transform: capitalize;
+}
