@@ -23,12 +23,12 @@ const ProductList = () => {
   const decrementHandler = (id) => {
     const productsClone = [...products];
     const selectedItem = productsClone.find((p) => p.id === id);
-    if (selectedItem.quantity ===1) {
-      const filteredProduct = productsClone.filter(p => p.id !== id) 
-      setProduct(filteredProduct)
-    } else{
+    if (selectedItem.quantity === 1) {
+      const filteredProduct = productsClone.filter((p) => p.id !== id);
+      setProduct(filteredProduct);
+    } else {
       selectedItem.quantity--;
-      setProduct(productsClone)
+      setProduct(productsClone);
     }
   };
 
@@ -39,22 +39,27 @@ const ProductList = () => {
     setProduct(productsClone);
   };
 
-  return (
-    <>
-      {products.map((product) => {
-        return (
-          <Product
-            product={product}
-            key={product.id}
-            onDelete={() => removeHandler(product.id)}
-            onIncrement={() => incrementHandler(product.id)}
-            onDecrement={() => decrementHandler(product.id)}
-            onChange={(e) => changeHandler(e, product.id)}
-          />
-        );
-      })}
-    </>
-  );
+  const renderProduct = () => {
+    if (products.length === 0) return <div>there is no product for you</div>;
+    return (
+      <div>
+        {products.map((product) => {
+          return (
+            <Product
+              product={product}
+              key={product.id}
+              onDelete={() => removeHandler(product.id)}
+              onIncrement={() => incrementHandler(product.id)}
+              onDecrement={() => decrementHandler(product.id)}
+              onChange={(e) => changeHandler(e, product.id)}
+            />
+          );
+        })}
+      </div>
+    );
+  };
+
+  return(renderProduct())
 };
 
 export default ProductList;
