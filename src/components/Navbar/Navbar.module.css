@@ -1,0 +1,21 @@
+.navbar {
+    position: relative;
+    flex-basis: 30%;
+}
+
+.icon {
+    font-size: 2rem;
+    color: #fbcfe8;
+}
+
+.counter {
+    background-color: #fbcfe8;
+    padding: 2px 7px;
+    border-radius: 50%;
+    position: absolute;
+    top: -16px;
+    left: 24px;
+    color: #9D174D;
+    font-weight: 600;
+}
+
