@@ -9,7 +9,7 @@ const Product = (props) => {
       <p>price : {props.product.price}</p>
       <span className={styles.quantity}>{props.product.quantity}</span>
       <input type="text" onChange={props.onChange} value={props.product.name} />
-      <button onClick={props.onDecrement}>
+      <button onClick={props.onDecrement} className={props.product.quantity <2 && styles.red}>
         {props.product.quantity > 1 ? "-" : <BiTrash/>}
       </button>
       <button onClick={props.onIncrement} className={styles.increment}>+</button>

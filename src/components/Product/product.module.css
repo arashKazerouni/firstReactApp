@@ -18,11 +18,12 @@
 button {
     border: none;
     background-color: white;
-    color: #9D174D;
+    color: #17199d;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     text-transform: capitalize;
+    font-size: 1.25rem;
 
 }
 
@@ -32,6 +33,11 @@ button {
     /* margin-right: 10px; */
 
 }
+
+.red{
+    color: #9D174D;
+}
+
 .quantity{
     background-color: #FBCFE8;
     color: #9D174D;
