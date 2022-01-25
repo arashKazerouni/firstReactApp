@@ -54,3 +54,10 @@ input{
     background: none;
     text-transform: capitalize;
 }
+
+.noProduct{
+    color: white;
+    background: rgba(0, 0, 0, 0.548);
+    padding: 1rem 2rem;
+    border-radius: 10px;
+}
