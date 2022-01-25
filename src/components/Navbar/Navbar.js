@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import styles from "./Navbar.module.css";
-const Navbar = () => {
+const Navbar = (props) => {
   return (
-    <section>
+    <>
       <nav className={styles.navbar}>
         <BsFillBasket2Fill className={styles.icon} />
-        <span className={styles.counter}>1</span>
+        <span className={styles.counter}>{props.totalItems}</span>
       </nav>
-    </section>
+    </>
   );
 };
 
