@@ -8,13 +8,14 @@
 }
 
 .counter {
-    background-color: #fbcfe8;
+    background: none;
+    border: 1px solid #fbcfe8;
     padding: 2px 7px;
     border-radius: 50%;
     position: absolute;
-    top: -16px;
+    top: -12px;
     left: 24px;
-    color: #9D174D;
+    color: #fbcfe8;
     font-weight: 600;
 }
 
