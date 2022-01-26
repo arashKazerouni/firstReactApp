@@ -1,58 +1,63 @@
-import { useState } from "react";
 import ProductList from "./ProductList";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
-const App = () => {
-  const [products, setProduct] = useState([
-    { name: "react", price: "100$", id: 1, quantity: 1 },
-    { name: "vuejs", price: "90$", id: 2, quantity: 2 },
-    { name: "angular", price: "80$", id: 3, quantity: 3 },
-  ]);
+import { Component } from "react/cjs/react.development";
 
-  const removeHandler = (id) => {
-    const filteredProduct = products.filter((p) => p.id !== id);
-    setProduct(filteredProduct);
+class App extends Component {
+  state = {
+    products: [
+      { name: "react", price: "100$", id: 1, quantity: 1 },
+      { name: "vuejs", price: "90$", id: 2, quantity: 2 },
+      { name: "angular", price: "80$", id: 3, quantity: 3 },
+    ],
   };
 
-  const incrementHandler = (id) => {
-    const productsClone = [...products];
-    const selectedItem = productsClone.find((p) => p.id === id);
+  removeHandler = (id) => {
+    const filteredProduct = this.state.products.filter((p) => p.id !== id);
+    this.setState(filteredProduct);
+  };
+
+  incrementHandler = (id) => {
+    const products = [...this.state.products];
+    const selectedItem = products.find((p) => p.id === id);
     selectedItem.quantity++;
-    setProduct(productsClone);
+    this.setState(products);
   };
 
-  const decrementHandler = (id) => {
-    const productsClone = [...products];
-    const selectedItem = productsClone.find((p) => p.id === id);
+  decrementHandler = (id) => {
+    const products = [...products];
+    const selectedItem = products.find((p) => p.id === id);
     if (selectedItem.quantity === 1) {
-      const filteredProduct = productsClone.filter((p) => p.id !== id);
-      setProduct(filteredProduct);
+      const filteredProduct = products.filter((p) => p.id !== id);
+      this.setState(filteredProduct);
     } else {
       selectedItem.quantity--;
-      setProduct(productsClone);
+      this.setState(products);
     }
   };
 
-  const changeHandler = (event, id) => {
-    const productsClone = [...products];
-    const selectedItem = productsClone.find((p) => p.id === id);
+  changeHandler = (event, id) => {
+    const products = [...products];
+    const selectedItem = products.find((p) => p.id === id);
     selectedItem.name = event.target.value;
-    setProduct(productsClone);
+    this.setState(products);
   };
 
-  return (
-    <div className={styles.container}>
-      <h1>shopping app</h1>
-      <Navbar totalItems={products.filter((p)=> p.quantity> 0).length}/>
-      <ProductList
-        products={products}
-        onRemove={removeHandler}
-        onIncrement={incrementHandler}
-        onDecrement={decrementHandler}
-        onChange={changeHandler}
-      />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className={styles.container}>
+        <h1>shopping app</h1>
+        <Navbar totalItems={this.state.products.filter((p) => p.quantity > 0).length} />
+        <ProductList
+          products={this.products}
+          onRemove={this.removeHandler}
+          onIncrement={this.incrementHandler}
+          onDecrement={this.decrementHandler}
+          onChange={this.changeHandler}
+        />
+      </div>
+    );
+  }
+}
 
 export default App;
