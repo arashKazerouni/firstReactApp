@@ -13,8 +13,9 @@ class App extends Component {
   };
 
   removeHandler = (id) => {
-    const filteredProduct = this.state.products.filter((p) => p.id !== id);
-    this.setState(filteredProduct);
+    const products = [...this.state.products]
+    const filteredProduct = products.filter((p) => p.id !== id);
+    this.setState({products: filteredProduct})
   };
 
   incrementHandler = (id) => {
@@ -25,19 +26,19 @@ class App extends Component {
   };
 
   decrementHandler = (id) => {
-    const products = [...products];
+    const products = [...this.state.products];
     const selectedItem = products.find((p) => p.id === id);
     if (selectedItem.quantity === 1) {
       const filteredProduct = products.filter((p) => p.id !== id);
-      this.setState(filteredProduct);
+      this.setState({products: filteredProduct});
     } else {
       selectedItem.quantity--;
-      this.setState(products);
+      this.setState(selectedItem);
     }
   };
 
   changeHandler = (event, id) => {
-    const products = [...products];
+    const products = [...this.state.products];
     const selectedItem = products.find((p) => p.id === id);
     selectedItem.name = event.target.value;
     this.setState(products);
@@ -49,7 +50,7 @@ class App extends Component {
         <h1>shopping app</h1>
         <Navbar totalItems={this.state.products.filter((p) => p.quantity > 0).length} />
         <ProductList
-          products={this.products}
+          products={this.state.products}
           onRemove={this.removeHandler}
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
