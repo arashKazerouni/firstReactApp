@@ -4,6 +4,9 @@ import Product from "./components/Product/Product";
 import styles from "./components/Product/product.module.css";
 
 class ProductList extends Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ProductList.js componentDidUpdate");
+  }
   renderProduct = () => {
     const { onRemove, onIncrement, onDecrement, onChange, products } =
       this.props;

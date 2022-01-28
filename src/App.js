@@ -41,20 +41,24 @@ class App extends Component {
       this.setState(selectedItem);
     }
   };
-
+  
+    changeHandler = (event, id) => {
+      const products = [...this.state.products];
+      const selectedItem = products.find((p) => p.id === id);
+      selectedItem.name = event.target.value;
+      this.setState(products);
+    };
+  
   componentDidMount() {
     console.log("App.js componentDidMount");
   }
 
-  changeHandler = (event, id) => {
-    const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    selectedItem.name = event.target.value;
-    this.setState(products);
-  };
+  componentDidUpdate(prevProps, prevState) {
+    console.log("app.js componentDidUpdate");
+  }
 
   render() {
-    console.log("app.js render");
+    console.log("app.js render ");
     return (
       <div className={styles.container}>
         <h1>shopping app</h1>
