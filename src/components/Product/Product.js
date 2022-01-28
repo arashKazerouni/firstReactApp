@@ -1,8 +1,10 @@
 import { useState } from "react";
 import styles from "./product.module.css";
 import { BiTrash } from "react-icons/bi";
+import { render } from "@testing-library/react";
 
 const Product = ({onChange,onIncrement,onDecrement,product,onDelete}) => {
+  console.log("Product.js redner");
   return (
     <div className={styles.product}>
       <p>name : {product.name} course</p>

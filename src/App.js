@@ -4,6 +4,11 @@ import Navbar from "./components/Navbar/Navbar";
 import { Component } from "react/cjs/react.development";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log("app.js constructor");
+  }
+
   state = {
     products: [
       { name: "react", price: "100$", id: 1, quantity: 1 },
@@ -13,9 +18,9 @@ class App extends Component {
   };
 
   removeHandler = (id) => {
-    const products = [...this.state.products]
+    const products = [...this.state.products];
     const filteredProduct = products.filter((p) => p.id !== id);
-    this.setState({products: filteredProduct})
+    this.setState({ products: filteredProduct });
   };
 
   incrementHandler = (id) => {
@@ -30,12 +35,16 @@ class App extends Component {
     const selectedItem = products.find((p) => p.id === id);
     if (selectedItem.quantity === 1) {
       const filteredProduct = products.filter((p) => p.id !== id);
-      this.setState({products: filteredProduct});
+      this.setState({ products: filteredProduct });
     } else {
       selectedItem.quantity--;
       this.setState(selectedItem);
     }
   };
+
+  componentDidMount() {
+    console.log("App.js componentDidMount");
+  }
 
   changeHandler = (event, id) => {
     const products = [...this.state.products];
@@ -45,10 +54,13 @@ class App extends Component {
   };
 
   render() {
+    console.log("app.js render");
     return (
       <div className={styles.container}>
         <h1>shopping app</h1>
-        <Navbar totalItems={this.state.products.filter((p) => p.quantity > 0).length} />
+        <Navbar
+          totalItems={this.state.products.filter((p) => p.quantity > 0).length}
+        />
         <ProductList
           products={this.state.products}
           onRemove={this.removeHandler}
