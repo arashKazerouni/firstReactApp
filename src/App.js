@@ -2,6 +2,9 @@ import ProductList from "./ProductList";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Component } from "react/cjs/react.development";
+import Product from "./components/Product/Product";
+import { BsFillTelephonePlusFill } from "react-icons/bs";
+import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 
 class App extends Component {
   constructor(props) {
@@ -24,37 +27,39 @@ class App extends Component {
   };
 
   incrementHandler = (id) => {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    product.quantity++;
     const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    selectedItem.quantity++;
-    this.setState(products);
+    products[index] = product;
+    this.setState({ products });
   };
 
   decrementHandler = (id) => {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    product.quantity--;
     const products = [...this.state.products];
-    const selectedItem = products.find((p) => p.id === id);
-    if (selectedItem.quantity === 1) {
-      const filteredProduct = products.filter((p) => p.id !== id);
-      this.setState({ products: filteredProduct });
-    } else {
-      selectedItem.quantity--;
-      this.setState(selectedItem);
-    }
+    products[index] = product;
+    this.setState({ products });
   };
-  
-    changeHandler = (event, id) => {
-      const products = [...this.state.products];
-      const selectedItem = products.find((p) => p.id === id);
-      selectedItem.name = event.target.value;
-      this.setState(products);
-    };
-  
+
+  changeHandler = (event, id) => {
+    const index = this.state.products.findIndex((item) => item.id === id);
+    const product = { ...this.state.products[index] };
+    product.name = event.target.value;
+    const products = [...this.state.products];
+    products[index].name = product.name;
+    this.setState({products}) 
+  };
+
   componentDidMount() {
     console.log("App.js componentDidMount");
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log("app.js componentDidUpdate");
+    console.log(prevState);
   }
 
   render() {
