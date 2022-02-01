@@ -4,6 +4,9 @@ import { BiTrash } from "react-icons/bi";
 import { Component } from "react/cjs/react.development";
 
 class Product extends Component {
+  componentWillUnmount() {
+    console.log("product.js unmount");
+  }
   render() { 
     console.log("Product.js redner");
     const {onChange,onIncrement,onDecrement,product,onDelete} = this.props; 
