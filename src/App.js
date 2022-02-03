@@ -2,9 +2,11 @@ import ProductList from "./ProductList";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Component } from "react/cjs/react.development";
+import ClassCounter from "./ClassCounter";
 import Product from "./components/Product/Product";
 import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
+import FunctionalCounter from "./components/FunctionalCounter";
 
 class App extends Component {
   constructor(props) {
@@ -72,7 +74,9 @@ class App extends Component {
     console.log("app.js render ");
     return (
       <div className={styles.container}>
-        <h1>shopping app</h1>
+        <FunctionalCounter />
+        {/* <ClassCounter /> */}
+        {/* <h1>shopping app</h1>
         <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
@@ -82,7 +86,7 @@ class App extends Component {
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
       </div>
     );
   }
