@@ -8,7 +8,7 @@ import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import FunctionalCounter from "./components/FunctionalCounter";
 import ClassTimer from "./components/ClassTimer";
-
+import FunctionalTimer from "./components/FunctionalTimer";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -79,7 +79,7 @@ class App extends Component {
         <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
           {this.state.isShow ? "hide" : "show"}
         </button>
-        {this.state.isShow && <ClassTimer />}
+        {this.state.isShow && <FunctionalTimer />}
         {/* <FunctionalCounter /> */}
         {/* <ClassCounter /> */}
         {/* <h1>shopping app</h1>
