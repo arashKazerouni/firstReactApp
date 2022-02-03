@@ -7,11 +7,12 @@ import Product from "./components/Product/Product";
 import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import FunctionalCounter from "./components/FunctionalCounter";
+import ClassTimer from "./components/ClassTimer";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    console.log("app.js constructor");
+    // console.log("app.js constructor");
   }
 
   state = {
@@ -20,6 +21,7 @@ class App extends Component {
       { name: "vuejs", price: "90$", id: 2, quantity: 2 },
       { name: "angular", price: "80$", id: 3, quantity: 3 },
     ],
+    isShow: true,
   };
 
   removeHandler = (id) => {
@@ -44,7 +46,7 @@ class App extends Component {
       const filteredProducts = this.state.products.filter((p) => p.id !== id);
       this.setState({ products: filteredProducts });
     } else {
-      const products = [...this.state.products ];
+      const products = [...this.state.products];
       product.quantity--;
       products[index] = product;
       console.log(products);
@@ -62,19 +64,23 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("App.js componentDidMount");
+    // console.log("App.js componentDidMount");
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("app.js componentDidUpdate");
-    console.log(prevState);
+    // console.log("app.js componentDidUpdate");
+    // console.log(prevState);
   }
 
   render() {
-    console.log("app.js render ");
+    // console.log("app.js render ");
     return (
       <div className={styles.container}>
-        <FunctionalCounter />
+        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
+          {this.state.isShow ? "hide" : "show"}
+        </button>
+        {this.state.isShow && <ClassTimer />}
+        {/* <FunctionalCounter /> */}
         {/* <ClassCounter /> */}
         {/* <h1>shopping app</h1>
         <Navbar
