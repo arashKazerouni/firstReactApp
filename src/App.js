@@ -6,6 +6,8 @@ import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import Wrapper from "./components/hoc/Wrapper";
 import styles from "./App.css"
+import ClickCounter from "./components/hocExample/ClickCounter";
+import HoverCounter from "./components/hocExample/HoverCounter";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -70,11 +72,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props);
     // console.log("app.js render ");
     return (
       <>
-        <Navbar
+      <ClickCounter/>
+      <HoverCounter/>
+        {/* <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
         <ProductList
@@ -83,7 +86,7 @@ class App extends Component {
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
-        />
+        /> */}
       </>
     );
   }
