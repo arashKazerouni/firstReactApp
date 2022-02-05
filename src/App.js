@@ -70,6 +70,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     // console.log("app.js render ");
     return (
       <>
