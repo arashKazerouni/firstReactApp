@@ -2,13 +2,10 @@ import ProductList from "./ProductList";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Component } from "react/cjs/react.development";
-import ClassCounter from "./ClassCounter";
 import Product from "./components/Product/Product";
 import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
-import FunctionalCounter from "./components/FunctionalCounter";
-import ClassTimer from "./components/ClassTimer";
-import FunctionalTimer from "./components/FunctionalTimer";
+import Wrapper from "./components/hoc/Wrapper";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -75,14 +72,7 @@ class App extends Component {
   render() {
     // console.log("app.js render ");
     return (
-      <div className={styles.container}>
-        <button onClick={() => this.setState({ isShow: !this.state.isShow })}>
-          {this.state.isShow ? "hide" : "show"}
-        </button>
-        {this.state.isShow && <FunctionalTimer />}
-        {/* <FunctionalCounter /> */}
-        {/* <ClassCounter /> */}
-        {/* <h1>shopping app</h1>
+      <Wrapper >
         <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
@@ -92,8 +82,8 @@ class App extends Component {
           onIncrement={this.incrementHandler}
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
-        /> */}
-      </div>
+        />
+      </Wrapper>
     );
   }
 }
