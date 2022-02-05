@@ -1,5 +1,6 @@
 .navbar {
     position: relative;
+    margin-top: 2rem;
 }
 
 .icon {
@@ -8,14 +9,14 @@
 }
 
 .counter {
-    background: none;
-    border: 1px solid #fbcfe8;
-    padding: 2px 7px;
+    background-color: #9D174D;
+    border: none;
+    padding: 1px 5px;
     border-radius: 50%;
     position: absolute;
-    top: -12px;
-    left: 24px;
+    top: 1px;
+    left: 20px;
     color: #fbcfe8;
-    font-weight: 600;
+    font-weight: 300;
 }
 

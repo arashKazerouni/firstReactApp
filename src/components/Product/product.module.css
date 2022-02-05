@@ -1,25 +1,28 @@
 .product {
     background-color: #270082;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 7px;
     color: rgba(255, 255, 255, 0.842);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 60vw;
+    width: 33vw;
     font-weight: 700;
-    height: 15vh;
+    height: 10rem;
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     text-transform: capitalize;
     flex-wrap: wrap;
     
+}
+.product>* {
+    margin-right: 1vw;
 }
 
 button {
     border: none;
     background-color: white;
     color: #17199d;
-    padding: 5px 10px;
+    padding: 5px 20px;
     border-radius: 5px;
     cursor: pointer;
     text-transform: capitalize;
@@ -29,8 +32,6 @@ button {
 
 .increment {
     background-color: #FBCFE8;
-
-    /* margin-right: 10px; */
 
 }
 

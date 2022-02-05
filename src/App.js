@@ -1,11 +1,11 @@
 import ProductList from "./ProductList";
-import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import { Component } from "react/cjs/react.development";
 import Product from "./components/Product/Product";
 import { BsFillTelephonePlusFill } from "react-icons/bs";
 import { isValidInputTimeValue } from "@testing-library/user-event/dist/utils";
 import Wrapper from "./components/hoc/Wrapper";
+import styles from "./App.css"
 class App extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +72,7 @@ class App extends Component {
   render() {
     // console.log("app.js render ");
     return (
-      <Wrapper >
+      <>
         <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
@@ -83,9 +83,9 @@ class App extends Component {
           onDecrement={this.decrementHandler}
           onChange={this.changeHandler}
         />
-      </Wrapper>
+      </>
     );
   }
 }
 
-export default App;
+export default Wrapper(App, "container");
