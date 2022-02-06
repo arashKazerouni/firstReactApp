@@ -8,6 +8,7 @@ import Wrapper from "./components/hoc/Wrapper";
 import styles from "./App.css"
 import ClickCounter from "./components/hocExample/ClickCounter";
 import HoverCounter from "./components/hocExample/HoverCounter";
+import ParentComp from "./components/PureMemoComp/ParentComp";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -75,8 +76,7 @@ class App extends Component {
     // console.log("app.js render ");
     return (
       <>
-      <ClickCounter/>
-      <HoverCounter/>
+      <ParentComp/>
         {/* <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
