@@ -10,6 +10,7 @@ import ClickCounter from "./components/hocExample/ClickCounter";
 import HoverCounter from "./components/hocExample/HoverCounter";
 import ParentComp from "./components/PureMemoComp/ParentComp";
 import ClassRef from "./components/ref/ClassRef";
+import FunctinalRef from "./components/ref/FunctionalRef";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -77,7 +78,7 @@ class App extends Component {
     // console.log("app.js render ");
     return (
       <>
-      <ClassRef/>
+      <FunctinalRef/>
         {/* <Navbar
           totalItems={this.state.products.filter((p) => p.quantity > 0).length}
         />
